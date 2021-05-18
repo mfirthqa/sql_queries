@@ -1,0 +1,37 @@
+SELECT * FROM country;
+SELECT COUNT(name) 
+FROM city
+WHERE countrycode =  'USA';
+
+SELECT name, population, lifeexpectancy
+FROM country
+WHERE name = 'Argentina';
+
+SELECT name, lifeexpectancy
+FROM country
+ORDER BY
+lifeexpectancy 
+DESC LIMIT 1;
+
+SELECT c.name FROM city c
+JOIN country s ON
+s.capital = c.id
+where s.name = 'Spain';
+
+SELECT DISTINCT l.language FROM countrylanguage l
+JOIN country c ON 
+l.countrycode = c.code
+where c.region = 'Southeast Asia'
+ORDER BY l.language;
+
+SELECT name FROM city
+WHERE name LIKE 'F%';
+
+SELECT count(c.code) FROM country c
+JOIN city s ON
+s.id = c.code
+WHERE c.code  = 'CHN';
+
+SELECT name, population
+FROM country 
+WHERE min(population);
