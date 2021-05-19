@@ -1,0 +1,70 @@
+select last_name from actor
+where first_name = 'John';
+
+select first_name, last_name from actor
+where last_name = 'Neeson';
+
+select actor_id, first_name, last_name from actor
+where (actor_id % 10) = 0;
+
+select description from film
+where film_id = 100;
+
+select film_id, title from film
+where rating = 'R';
+
+select film_id, title from film
+where rating != 'R';
+
+select film_id, title, length
+from film 
+order by
+length limit 10;
+
+select title, length
+from film 
+where length = 185;
+
+select film_id, title
+from film
+where special_features = 'Deleted Scenes';
+
+select distinct last_name
+from actor
+order by last_name DESC;
+
+SELECT last_name, COUNT(*) as frequency
+FROM actor
+GROUP BY last_name
+ORDER BY COUNT(*) DESC;
+
+select count(a.actor_id), a.first_name, a.last_name
+from actor a
+join film_actor fa ON fa.actor_id = a.actor_id
+group by a.actor_id
+order by 1 desc
+limit 1;
+
+Select avg(length)
+from film;
+
+select avg(f.length), c.name
+from film f
+join category c on f.last_update = c.last_update;
+
+Select title from film_text
+where description like 'robot';
+
+select count(title)
+from film
+where release_year = 2010;
+
+select f.title 
+from film f
+join category c on f.last_update = c.last_update
+where c.name = 'Horror';
+
+select first_name, last_name 
+from staff
+where
+staff_id = 2;
